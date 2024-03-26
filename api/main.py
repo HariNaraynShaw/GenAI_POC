@@ -31,7 +31,7 @@ async def weekly_data():
 @app.get('/leaderboard')
 async def leaderboard_data():
     data = get_leaderboard_details()
-    return { 'data': 'data'}
+    return { 'data': data}
 # @app.get("/testuser")
 # async def react_app():
     # print(f'Rest of path: {rest_of_path}')
