@@ -1,13 +1,17 @@
-import React from 'react';
-import LeaderBoard from './Leaderboard/Leaderboard';
 import './App.css';
+import Leaderboard from './components/Leaderboard/Leaderboard';
+
+const container = {
+  width: "100%",
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+};
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-       <LeaderBoard/>
-      </header>
+    <div style={container}>
+      <Leaderboard />
     </div>
   );
 }

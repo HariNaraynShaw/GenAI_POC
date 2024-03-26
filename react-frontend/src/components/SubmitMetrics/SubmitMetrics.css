@@ -1,0 +1,10 @@
+.submit-metrics-form .form-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 16px;
+  }
+  
+  .submit-metrics-form .form-row .ant-form-item {
+    width: 48%;
+  }
+  

@@ -8,7 +8,14 @@ from fastapi import FastAPI, File, UploadFile, Query, Path
 from database import get_leaderboard_details,insert_into_employee_details,get_weekly_details
 from pydantic import BaseModel, Field
 from typing import List, Optional
+from fastapi.middleware.cors import CORSMiddleware
+
 app = FastAPI()
+origins = ["*"]  # Allow specific or all origins
+
+app.add_middleware(
+    CORSMiddleware, allow_origins=origins, allow_credentials=False, allow_methods=["*"], allow_headers=["*"]
+)
 
 # templates = Jinja2Templates(directory="../ui/build")
 # app.mount('/static', StaticFiles(directory="../ui/build/static"), 'static')
@@ -40,6 +47,7 @@ async def leaderboard_data():
 
 @app.post('/submit')
 async def username(userdetails: UserModel):
+    print(f'Username: {userdetails}')
     # userdetails = {
     #     "username": 'Hari',
     #      "emailid": 'Harinarayan.shaw@infosys.com',
@@ -56,7 +64,7 @@ async def username(userdetails: UserModel):
          "weekly_performance":userdetails.weekly_performance,
          "reusability_refactoring":userdetails.reusability_refactoring,
          "score":userdetails.score,
-         "time": userdetails.time,
+         "time": userdetails.time
          
 
      }

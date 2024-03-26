@@ -52,7 +52,7 @@ def get_weekly_details():
         collection = db["employee_details"]
         today_date = datetime.datetime.now()
         start_date = today_date - datetime.timedelta(days = 7)
-        result = collection.find({"time":{"$gte":start_date,"$lte":today_date}}).sort('score',-1)
+        result = collection.find({"time":{"$gte":start_date}}).sort('score',-1)
         documents = list(result)
         return documents
     except Exception as e :
